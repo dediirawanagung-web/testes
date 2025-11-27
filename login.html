@@ -28,10 +28,105 @@
                 <button type="submit" id="loginButton" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-900 focus:ring-blue-400">Masuk</button>
             </form>
             <div class="mt-6 p-4 bg-white/10 rounded-lg">
-                <p class="text-xs text-blue-100 text-center"><strong>Info:</strong> Gunakan email dan password yang telah disediakan.</p>
+                <p class="text-xs text-blue-100 text-center"><strong>Email:</strong> Pilih dari daftar staf. <strong>Password:</strong> <code>admin123</code></p>
             </div>
         </div>
     </div>
-    <script src="login-script.js"></script>
+
+    <script>
+        // DATABASE SIMULASI (Di aplikasi asli, ini ada di server)
+        const users = {
+            'widjaya88.smb88@gmail.com': { name: 'WIDJAYA', password: 'admin123' },
+            'david.smb9856@gmail.com': { name: 'DAVID', password: 'admin123' },
+            'charlie454506@gmail.com': { name: 'CHARLIE', password: 'admin123' },
+            'hariantohari6036@gmail.com': { name: 'HARIANTO', password: 'admin123' },
+            'rinalabdilah.smb88@gmail.com': { name: 'RINAL ABDILLAH NASUTION', password: 'admin123' },
+            'erihari391@gmail.com': { name: 'ERI HARIANTO', password: 'admin123' },
+            'mahendranmahh2388@gmail.com': { name: 'MAHENDRAN', password: 'admin123' },
+            'tommyhasim2304@gmail.com': { name: 'TOMMY HASIM', password: 'admin123' },
+            'ranjit230422@gmail.com': { name: 'RANJIT', password: 'admin123' },
+            'willyperayuda7789@gmail.com': { name: 'WILLY PERAYUDA', password: 'admin123' },
+            'andibaru536@gmail.com': { name: 'ANDI', password: 'admin123' },
+            'alfinomuk3256@gmail.com': { name: 'ALFINO MUKTI', password: 'admin123' },
+            'akasfarm87663@gmail.com': { name: 'AKAS FARMA', password: 'admin123' },
+            'ariromandus12@gmail.com': { name: 'ARI ROMANDUS FERNAND', password: 'admin123' },
+            'parisamrulloh26885@gmail.com': { name: 'PARIS AMRULLOH', password: 'admin123' },
+            'samsulma874@gmail.com': { name: 'SAMSUL MAARIF', password: 'admin123' },
+            'razzsuhan@gmail.com': { name: 'SUHAN RAZ', password: 'admin123' },
+            'rahmadisormi.smb888@gmail.com': { name: 'RAHMADI SORMIN', password: 'admin123' },
+            'novalmuttawali354@gmail.com': { name: 'NOVAL MUTTAWALI HAKIM', password: 'admin123' },
+            'putraanugrahrizki76@gmail.com': { name: 'PUTRA ANUGRAH RIZKI', password: 'admin123' },
+            'iamwil220@gmail.com': { name: 'WILIAM', password: 'admin123' },
+            'pramdhani086@gmail.com': { name: 'PUTRA RAMADHANI', password: 'admin123' },
+            'fiqalkana6@gmail.com': { name: 'FIQAL KANA', password: 'admin123' },
+            'marjokisang.smb88@gmail.com': { name: 'MARJOKI SANG', password: 'admin123' },
+            'danielsmb385@gmail.com': { name: 'DANIEL', password: 'admin123' },
+            'raazjesen88.smb88@gmail.com': { name: 'RAAZ JESEN STEPANUS', password: 'admin123' },
+            'mahatsanjayahrp@gmail.com': { name: 'MAHAT SANJAYA HARAHAP', password: 'admin123' },
+            'aamrul568@gmail.com': { name: 'AMRUL', password: 'admin123' },
+            'jonromanpurba0305@gmail.com': { name: 'JONROMAN PURBA', password: 'admin123' },
+            'annen.smb88@gmail.com': { name: 'ANNEN', password: 'admin123' },
+            'mfajjarsiddik69@gmail.com': { name: 'M FAJAR SIDDIK', password: 'admin123' },
+            'bobykasandrabancin@gmail.com': { name: 'BOBY KASANDRA BANCIN', password: 'admin123' },
+            'kikiyunita523@gmail.com': { name: 'KIKI YUNITA', password: 'admin123' },
+            'galit8158@gmail.com': { name: 'GALI PRATAMA', password: 'admin123' },
+            'primanugraha428@gmail.com': { name: 'PRIMA NUGRAHA', password: 'admin123' },
+            'roydilensmb@gmail.com': { name: 'ROY DILEN', password: 'admin123' },
+            'ridzkyramadhan550@gmail.com': { name: 'RIDZKY RAMADHAN', password: 'admin123' },
+            'dediirawanagung@gmail.com': { name: 'AGUNG DEDI IRAWAN', password: 'admin123' },
+            'maiceltampu210424@gmail.com': { name: 'MAICEL TAMPUBOLON', password: 'admin123' },
+            'adechairunis260424@gmail.com': { name: 'ADE CHAIRUNNISA', password: 'admin123' },
+            'rezisyaputrasmb@gmail.com': { name: 'M REZI SYAPUTRA', password: 'admin123' },
+            'khoiruddin1317@gmail.com': { name: 'KHOIRUDDIN', password: 'admin123' },
+            'bambangagungsutrisno@gmail.com': { name: 'BAMBANG AGUNG SUTRISNO', password: 'admin123' },
+            'putrainsany21@gmail.com': { name: 'PUTRA INSANY', password: 'admin123' },
+            'ferasalmake2@gmail.com': { name: 'FERA SALMA', password: 'admin123' },
+            'rizkyrivlan@gmail.com': { name: 'RIVLAN RIZKY', password: 'admin123' },
+            'saidmaulanaali90@gmail.com': { name: 'MAULANA ALI SAID', password: 'admin123' },
+            'ahmadandika.smb88@gmail.com': { name: 'AHMAD ANDIKA', password: 'admin123' },
+            'ksanggara757@gmail.com': { name: 'ANGGARA K S', password: 'admin123' },
+            'dimasadhitya127@gmail.com': { name: 'DIMAS ADHITYA', password: 'admin123' },
+            'egaprayuda877@gmail.com': { name: 'EGA PRAYUDA', password: 'admin123' },
+            'arjunpraisya066@gmail.com': { name: 'ARJUN PRAISYA', password: 'admin123' },
+            'panca9244@gmail.com': { name: 'ADITYA PANCA', password: 'admin123' },
+            'audisoyong@gmail.com': { name: 'AUDIS OYONG DUANSYAH', password: 'admin123' },
+            'ojia43949@gmail.com': { name: 'ADE OJI SHAPUTRA', password: 'admin123' },
+            'alfiansyah556677@gmail.com': { name: 'ALFIANSYAH', password: 'admin123' },
+            'andyputra556677@gmail.com': { name: 'ANDY PUTRA', password: 'admin123' },
+            'junitamarsha96@gmail.com': { name: 'JUNITA MARSHA', password: 'admin123' },
+            'melaniputritrinita25@gmail.com': { name: 'MELAN PUTRI TRINITA', password: 'admin123' },
+            'syarifahrumiatiastari2807@gmail.com': { name: 'SYARIFAH RUMIATI ASTARI', password: 'admin123' },
+            'perdanaputra00711@gmail.com': { name: 'PERDANA PUTRA', password: 'admin123' },
+            'gunawan87smb@gmail.com': { name: 'GUNAWAN', password: 'admin123' },
+            'mayamarsela47@gmail.com': { name: 'MAYA MARSELA', password: 'admin123' }
+        };
+
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const loginButton = document.getElementById('loginButton');
+            const errorMessage = document.getElementById('errorMessage');
+
+            loginButton.disabled = true;
+            loginButton.textContent = 'Memproses...';
+            errorMessage.classList.add('hidden');
+
+            setTimeout(() => {
+                const user = users[email];
+                const isPasswordCorrect = user && password === user.password;
+
+                if (isPasswordCorrect) {
+                    localStorage.setItem('loggedInUser', JSON.stringify({ name: user.name, email: email }));
+                    alert(`Login berhasil! Selamat datang, ${user.name}.`);
+                    window.location.href = 'index.html';
+                } else {
+                    errorMessage.classList.remove('hidden');
+                    loginButton.disabled = false;
+                    loginButton.textContent = 'Masuk';
+                }
+            }, 800);
+        });
+    </script>
 </body>
 </html>
